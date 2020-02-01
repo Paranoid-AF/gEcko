@@ -2,10 +2,14 @@ const path = require('path');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
+  externals: {
+    typecho: 'typecho'
+  },
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'build/static'),
+    path: path.resolve(__dirname, 'dist/static'),
     filename: 'bundle.js',
   },
   optimization: {
@@ -21,9 +25,16 @@ module.exports = {
       }
     }
   },
-  plugins: [new MiniCssExtractPlugin({
-    filename: 'bundle.css'
-  })],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'bundle.css',
+      options: {
+        hmr: process.env.NODE_ENV === 'development',
+        reloadAll: true
+      }
+    }),
+    new CleanWebpackPlugin()
+  ],
   module: {
     rules: [
       {
@@ -46,18 +57,32 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: /\.less$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
+        test: /\.(less|css)$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
       }
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
-    open: true,
-    hot: true
+    stats: {
+      colors: true,
+      hash: false,
+      version: false,
+      timings: false,
+      assets: false,
+      chunks: false,
+      modules: false,
+      reasons: false,
+      children: false,
+      source: false,
+      errors: true,
+      errorDetails: true,
+      warnings: true,
+      publicPath: false
+    },
+    contentBase: path.resolve(__dirname, 'dist'),
+    publicPath: '/static/', // 模拟 output 的目录
+    open: true, // 启动后自动打开浏览器
+    hot: true, // 热重载
+    watchContentBase: true, // 手动对 dist 内的文件进行更改会造成页面强制刷新
   }
 }
