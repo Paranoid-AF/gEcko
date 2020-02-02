@@ -1,11 +1,18 @@
 @import "./nav/nav.less";
 @import "./color.less";
-@responsiveThreshold: 500px;
+@responsiveThreshold: 765px;
 body{
   margin: 0;
+  height: 6000px;
 }
 
-a {
+a{
   color: @linkColor;
   text-decoration: underline dashed;;
+}
+
+.container{
+  position: relative;
+  width: calc(100% - @navWidth);
+  margin-left: @navWidth;
 }

@@ -1,30 +1,58 @@
+import "./search.js";
 import $ from "jquery";
-var searchBoxShown = false;
-const showSearchBox = () => {
-  $(".searchFormFake").hide();
-  $(".searchForm").show();
-  $(".searchInput").focus();
-  searchBoxShown = true;
+var mobile = false, forceOn = false;
+const responsiveThreshold = 765;
+const animationDuration = 180;
+
+const calibrateSize = () => {
+  mobile = $(window).width() < responsiveThreshold;
+  if(mobile){
+    $(".navClose").show();
+    if(forceOn){
+      $(".nav").show();
+      showOverlay();
+    }else{
+      $(".nav").hide();
+      hideOverlay();
+    }
+  }else{
+    hideOverlay();
+    $(".navClose").hide();
+    $(".nav").show();
+  }
 }
 
-$(".search").click(showSearchBox);
-$(".search").contextmenu(()=>{
-  let shouldAllowMenu = searchBoxShown;
-  showSearchBox();
-  return shouldAllowMenu;
+$(".navOverlay").click(()=>{
+  console.log("aaa");
+  $(".navClose").click();
 });
 
-if($(".searchInput").val() !== ""){
-  $(".searchFormFake").hide();
-  $(".searchForm").show();
-  searchBoxShown = true;
+$(".navClose").click(() => {
+  $(".nav").fadeOut(animationDuration);
+  hideOverlay();
+  forceOn = false;
+});
+
+$(".container").click(()=>{
+  $(".nav").fadeIn(animationDuration);
+  if(mobile){
+    showOverlay();
+  }
+  forceOn = true;
+});
+
+const showOverlay = () => {
+  $(".navOverlay").show();
 }
 
-$(".searchInput").blur(()=>{
-  console.log($(".searchInput").val());
-  if($(".searchInput").val() === ""){
-    $(".searchFormFake").show();
-    $(".searchForm").hide();
-    searchBoxShown = false;
-  }
+const hideOverlay = () => {
+  $(".navOverlay").hide();
+}
+
+$(window).resize(()=>{
+  calibrateSize();
+});
+
+$(document).ready(()=>{
+  calibrateSize();
 });
