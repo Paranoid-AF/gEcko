@@ -3,7 +3,6 @@
 @responsiveThreshold: 765px;
 body{
   margin: 0;
-  height: 6000px;
 }
 
 a{
@@ -15,4 +14,10 @@ a{
   position: relative;
   width: calc(100% - @navWidth);
   margin-left: @navWidth;
+  height: 6000px;
+}
+
+/* Fix for mobile browsers which 100vh contains browser address bar */
+html, body {
+  height: 100%;
 }

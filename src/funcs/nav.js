@@ -33,7 +33,7 @@ $(".navClose").click(() => {
   forceOn = false;
 });
 
-$(".container").click(()=>{
+$(".navButton").click(()=>{
   $(".nav").fadeIn(animationDuration);
   if(mobile){
     showOverlay();
