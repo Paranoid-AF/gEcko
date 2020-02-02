@@ -1,0 +1,164 @@
+@navWidth: 320px;
+@navWidthPhone: 80%;
+@borderWidth: 1px;
+.nav{
+  margin: 0;
+  display: block;
+  position: fixed;
+  width: @navWidth;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background: @navBackground;
+}
+
+.nav::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 0;
+  height: 100%;
+  border: 1px solid @borderColor;
+}
+
+.siteInfo{
+  margin-top: 57px;
+  text-align: center;
+}
+
+#siteInfoLogo{
+  color: @navTitle;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+#siteInfoDescription{
+  margin: 0;
+  margin-top: 4px;
+  color: @navDescription;
+}
+
+.search{
+  margin: 0 auto;
+  margin-top: 31px;
+  border: 1px solid @searchBoxBorder;
+  border-radius: 50px;
+  width: 90%;
+  height: 35px;
+  background: @searchBoxBackground;
+  /* Align vertically center */
+  display: flex;
+  align-items: center;
+  cursor: text;
+}
+
+.searchInput{
+  font-size: 16px;
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.searchForm{
+  width: 100%;
+  display: none;
+}
+
+.searchFormFake{
+  font-size: 16px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.searchPlaceholderFake{
+  float: left;
+  color: @searchBoxPlaceholder;
+}
+
+.searchIconFake{
+  width: 21.3px;
+  height: 21.3px;
+  background-image: url("../../assets/search.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  float: left;
+  margin-right: 6.1px;
+}
+
+.category{
+  margin-top: 27px;
+  width: 100%;
+  height: calc(100vh - 59px - 77px - 57px - 31px - 35px - 27px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.categoryLink{
+  text-decoration: none;
+  display: block;
+  text-align: right;
+  padding: 11px 0;
+  font-size: 25px;
+  width: 100%;
+  color: @categoryColor;
+}
+
+.categoryActive{
+  background: @categoryActiveBackground;
+  color: @categoryActiveColor;
+}
+
+.categoryLink::after{
+  content: "";
+  display: block;
+  text-align: right;
+  width: 18px;
+  float: right;
+  height: 1px;
+}
+
+.footer{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: @navBackground;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 16px;
+}
+
+.linkDivider{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  border: 1px solid @borderColor;
+  margin: 6.5px 0;
+}
+
+.footerText::before{
+  content: "";
+  float: left;
+  display: block;
+  width: 20px;
+  height: 1px;
+}
+
+.footerText{
+  margin: 0;
+  font-size: 14px;
+  color: @footerColor;
+}
+
+/* On devices with small screens */
+@media (max-width: @responsiveThreshold) {
+  .nav{
+    width: @navWidthPhone;
+  }
+}
