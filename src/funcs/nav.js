@@ -8,6 +8,7 @@ const calibrateSize = () => {
   if(mobile){
     $(".navClose").show();
     if(forceOn){
+      $(".nav").show();
       showNav(true);
       showOverlay();
     }else{
@@ -15,6 +16,7 @@ const calibrateSize = () => {
       hideOverlay();
     }
   }else{
+    $(".nav").show();
     hideOverlay();
     $(".navClose").hide();
     showNav(true);
@@ -68,4 +70,32 @@ $(window).resize(()=>{
 
 $(document).ready(()=>{
   calibrateSize();
+  randomizeSplashText();
 });
+
+$("#siteInfoDescription #switch").click(() => {
+  randomizeSplashText(true);
+});
+
+var currentSplashText = -1;
+var switchedCount = 0;
+const randomizeSplashText = (rotateSwitch = false) => {
+  if(typecho !== undefined && typecho.splashText !== undefined && typecho.splashText.length > 0){
+    let randomIndex;
+    if(typecho.splashText.length == 1){
+      randomIndex = 0;
+    }else{
+      do{
+        randomIndex = Math.random() * typecho.splashText.length;
+        randomIndex = Math.floor(randomIndex);
+      }while(randomIndex === currentSplashText);
+    }
+    currentSplashText = randomIndex;
+    $("#siteInfoDescription #switch").css("display", "inline-block");
+    if(rotateSwitch){
+      switchedCount++;
+      $("#siteInfoDescription #switch").css("transform", "rotate("+(switchedCount * 180)+"deg)");
+    }
+    $("#siteInfoDescription #text").text(typecho.splashText[currentSplashText]);
+  }
+}

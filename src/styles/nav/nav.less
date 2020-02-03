@@ -52,7 +52,7 @@
 
 .nav{
   margin: 0;
-  display: block;
+  display: none;
   position: fixed;
   width: @navWidth;
   height: 100%;
@@ -104,10 +104,30 @@
   text-decoration: none;
 }
 
+#siteInfoLogo img{
+  max-width: @navWidth;
+}
+
 #siteInfoDescription{
-  margin: 0;
+  margin: 0 15px;
   margin-top: 4px;
   color: @navDescription;
+  font-size: 19px;
+  font-weight: 400;
+}
+
+#siteInfoDescription #switch{
+  display: none;
+  background-image: url("../../assets/refresh.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 22.16px;
+  height: 16.12px;
+  cursor: pointer;
+  position: relative;
+  margin-left: 4px;
+  top: 1px;
+  transition: all 0.3s ease;
 }
 
 .search{
