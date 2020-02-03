@@ -1,0 +1,80 @@
+<!-- <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta charset="<?php $this->options->charset(); ?>"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="UTF-8">
+    <title>gEcko</title>
+  <link href="./static/bundle.css" rel="stylesheet"></head>
+  <body>
+    <div class="navOverlay"></div>
+    <div class="nav">
+      <div class="navClose"></div>
+      <div class="navWrapper">
+        <div class="siteInfo">
+          <a id="siteInfoLogo" href="#">辉光夜</a>
+          <!-- <a id="siteInfoLogo" href="#"><img src="./usr/logo.png" alt="站点 Logo" /></a> -->
+          <p id="siteInfoDescription"><span id="text">一个博客而已。</span><span id="switch" title="更换文本"></span></p>
+        </div>
+        <div class="search">
+          <form id="search" method="post" class="searchForm" action="<?php $this->options->siteUrl(); ?>" role="search">
+            <input type="text" id="s" name="s" class="searchInput" placeholder="搜索..." />
+          </form>
+          <div class="searchFormFake">
+            <div class="searchIconFake"></div>
+            <span class="searchPlaceholderFake">搜索...</span>
+          </div>
+        </div>
+        <div class="category">
+          <a class="categoryLink categoryActive" href="#">首页</a>
+          <a class="categoryLink" href="#">生活</a>
+          <a class="categoryLink" href="#">笔记</a>
+          <a class="categoryLink" href="#">迷因</a>
+          <div class="linkDivider"></div>
+          <div class="pages">
+            <a class="pageLink" href="#">友链</a>
+            <a class="pageLink" href="#">RSS</a>
+            <a class="pageLink" href="#">关于</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <p class="footerText">
+          © 2020 <a href="#">辉光夜</a>，保留所有权利
+        </p>
+      </div>
+    </div>
+
+    <div class="navTitle">
+      <div class="navButton"></div>
+      <a class="navText" href="#">辉光夜</a>
+    </div>
+
+    <div class="container">
+      <p>aaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaa</p>
+    </div>
+
+
+    <script>
+      var typecho = {
+        splashText: [
+          "World is powered by solitude.",
+          "You are [not] alone.",
+          "Making the world a better place.",
+          "WELCOME TO THE CHAOS WORLD",
+          "故事还没有结束，因为只有你还身处无限轮回之中!"
+        ]
+      };
+    </script>
+
+    <script type="text/javascript" src="./static/bundle.js"></script>
+  </body>
+</html>
