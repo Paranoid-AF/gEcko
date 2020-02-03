@@ -10,6 +10,7 @@
   height: 180px;
   z-index: 1;
   background: linear-gradient(154deg, rgba(255,255,255,1), rgba(255,255,255,0) 54%);
+  pointer-events: none;
 }
 
 .navButton{
@@ -22,6 +23,7 @@
   background-size: 100%;
   background-repeat: no-repeat;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .navText{
@@ -32,6 +34,7 @@
   color: @navTitleText;
   font-weight: 400;
   text-decoration: none;
+  user-select: none;
 }
 
 .navOverlay{
@@ -55,8 +58,8 @@
   left: 0;
   top: 0;
   background: @navBackground;
-  display: none;
   z-index: 3;
+  transition: left 0.4s;
 }
 
 .nav::after{

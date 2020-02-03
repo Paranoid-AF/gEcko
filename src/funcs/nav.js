@@ -2,44 +2,57 @@ import "./search.js";
 import $ from "jquery";
 var mobile = false, forceOn = false;
 const responsiveThreshold = 765;
-const animationDuration = 180;
-
+const navTransition = 0.4; // second
 const calibrateSize = () => {
   mobile = $(window).width() < responsiveThreshold;
   if(mobile){
     $(".navClose").show();
     if(forceOn){
-      $(".nav").show();
+      showNav(true);
       showOverlay();
     }else{
-      $(".nav").hide();
+      hideNav(true);
       hideOverlay();
     }
   }else{
     hideOverlay();
     $(".navClose").hide();
-    $(".nav").show();
+    showNav(true);
   }
 }
 
 $(".navOverlay").click(()=>{
-  console.log("aaa");
   $(".navClose").click();
 });
 
 $(".navClose").click(() => {
-  $(".nav").fadeOut(animationDuration);
+  hideNav();
   hideOverlay();
   forceOn = false;
 });
 
 $(".navButton").click(()=>{
-  $(".nav").fadeIn(animationDuration);
+ showNav();
   if(mobile){
     showOverlay();
   }
   forceOn = true;
 });
+
+const showNav = (instant = false) => {
+  $(".nav").show();
+  $(".nav").css("left", 0);
+}
+
+const hideNav = (instant = false) => {
+  if(instant){
+    $(".nav").hide();
+    setTimeout(()=>{
+      $(".nav").show();
+    }, navTransition * 1000);
+  }
+  $(".nav").css("left", "-" + $(".nav").css("width"));
+}
 
 const showOverlay = () => {
   $(".navOverlay").show();
