@@ -66,11 +66,13 @@ const hideOverlay = () => {
 
 $(window).resize(()=>{
   calibrateSize();
+  gradientControl();
 });
 
 $(document).ready(()=>{
   calibrateSize();
   randomizeSplashText();
+  gradientControl();
 });
 
 $("#siteInfoDescription #switch").click(() => {
@@ -97,5 +99,22 @@ const randomizeSplashText = (rotateSwitch = false) => {
       $("#siteInfoDescription #switch").css("transform", "rotate("+(switchedCount * 180)+"deg)");
     }
     $("#siteInfoDescription #text").text(typecho.splashText[currentSplashText]);
+  }
+}
+
+$(window).scroll(() => {
+  gradientControl();
+});
+
+const gradientControl = () => {
+  let transitionTime = 200;
+  if(mobile){
+    if($(window).scrollTop() > 80){
+      $(".navGradient").fadeIn(transitionTime);
+    }else{
+      $(".navGradient").fadeOut(transitionTime);
+    }
+  }else{
+    $(".navGradient").fadeOut(transitionTime);
   }
 }

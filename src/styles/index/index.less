@@ -1,0 +1,15 @@
+@commonContentWidth: 1096px;
+@minimalContentBlank: 40px;
+.index{
+  margin: 0 auto;
+  width: @commonContentWidth;
+  height: 100%;
+  background-color: #aaa; // TODO
+}
+
+@media (max-width: calc(@navWidth + @commonContentWidth + @minimalContentBlank)){
+  .index{
+    width: calc(100% - @minimalContentBlank);
+  }
+}
+
