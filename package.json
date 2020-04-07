@@ -27,5 +27,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development"
+  },
+  "dependencies": {
+    "uglifyjs-webpack-plugin": "^2.2.0"
   }
 }
