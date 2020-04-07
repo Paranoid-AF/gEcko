@@ -1,10 +1,15 @@
+@import "../color.less";
 @commonContentWidth: 1096px;
 @minimalContentBlank: 40px;
 .index{
   margin: 0 auto;
   width: @commonContentWidth;
   height: 100%;
-  background-color: #aaa; // TODO
+}
+
+.subjectTitle{
+  text-decoration: none;
+  color: @titleLinkColor;
 }
 
 @media (max-width: calc(@navWidth + @commonContentWidth + @minimalContentBlank)){
