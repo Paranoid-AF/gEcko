@@ -16,7 +16,7 @@
 
 .subjectInfo{
   font-size: 14px;
-  margin: 10px 0;
+  margin: 0;
   color: #666;
 
   span:after{
@@ -31,14 +31,32 @@
 
 .subjectTitle{
   text-decoration: none;
+  display: inline;
   color: @titleLinkColor;
   h1 {
+    display: inline;
     margin: 0;
   }
 }
 
+.subjectTitle:hover{
+  text-decoration: underline 3px;
+}
+
 .subjectBriefing{
-  margin-top: 18px;
+  margin-top: 3px;
+}
+
+.subjectMore{
+  display: inline-block;
+  color: @readMoreColor;
+  transition: color 0.3s;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.subjectMore:hover{
+  color: @readMoreColorHover;
 }
 
 @media (max-width: calc(@navWidth + @commonContentWidth + @minimalContentBlank)){

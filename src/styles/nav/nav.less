@@ -205,6 +205,12 @@
   color: @categoryColor;
 }
 
+.categoryLink:not(.categoryActive):hover{
+  background: @categoryBgColorHover;
+  color: @categoryColorHover;
+  transition: color 0.3s, background 0.3s;
+}
+
 .categoryActive{
   background: @categoryActiveBackground;
   color: @categoryActiveColor;
@@ -251,6 +257,11 @@
   font-size: 23px;
   display: flex;
   align-items: center;
+}
+
+.pageLink:hover{
+  color: @pageLinkColorHover;
+  transition: color 0.5s;
 }
 
 .pageLink::after{

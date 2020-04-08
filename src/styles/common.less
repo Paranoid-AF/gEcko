@@ -7,7 +7,11 @@
 @responsiveThreshold: 765px;
 a{
   color: @linkColor;
-  text-decoration: underline dashed;;
+  text-decoration: underline dashed;
+}
+
+a:not([class]):hover{
+  filter: brightness(200%);
 }
 
 .container{
@@ -25,12 +29,15 @@ html, body {
   margin: 0;
   padding: 0;
   font-size: 16px;
+  text-rendering: geometricPrecision;
+  font-family: Arial,x-locale-body,sans-serif;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
 body{
   background: @pageBackground;
   margin-top: -1em;
-  text-rendering: geometricPrecision;
 }
 
 @media (max-width: @responsiveThreshold) {
