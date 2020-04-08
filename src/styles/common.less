@@ -1,6 +1,9 @@
 @import "./nav/nav.less";
 @import "./index/index.less";
 @import "./color.less";
+@import "./archived/archived.less";
+
+
 @responsiveThreshold: 765px;
 a{
   color: @linkColor;
@@ -27,6 +30,7 @@ html, body {
 body{
   background: @pageBackground;
   margin-top: -1em;
+  text-rendering: geometricPrecision;
 }
 
 @media (max-width: @responsiveThreshold) {

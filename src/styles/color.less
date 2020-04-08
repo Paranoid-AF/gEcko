@@ -5,11 +5,12 @@
 @navDescription: #828080;
 @searchBoxBorder: #828080;
 @searchBoxBackground: #DADADA;
+@searchBoxBackgroundActive: #fff;
 @searchBoxPlaceholder: #767676;
 @footerColor: #828080;
 @pageLinkColor: #767676;
 @navTitleText: #C9CACC;
-@gradientColor: rgba(0,0,0,0.7);
+@gradientColor: rgba(0,0,0,0.4);
 @contentBackground: @pageBackground;
 
 
@@ -18,5 +19,14 @@
 @borderColor: #262829;
 @categoryColor: #828080;
 @categoryActiveColor: #E4E4E4;
-@categoryActiveBackground: #EB9000;
-@titleLinkColor: #c9cacc;
+@categoryActiveBackground: #0BAF76;
+@titleLinkColor: #0BAF76;
+
+@subjectTextColor: #c9cacc;
+
+@archivedTooltipColor: #fff;
+
+:root{
+  --search-box-active: @searchBoxBackgroundActive;
+  --search-box-inactive: @searchBoxBackground;
+}

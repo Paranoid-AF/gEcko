@@ -1,4 +1,4 @@
-@import "../color.less";
+@import "../content/content.less";
 @commonContentWidth: 1096px;
 @minimalContentBlank: 40px;
 .index{
@@ -7,14 +7,52 @@
   height: 100%;
 }
 
+.subject {
+  color: @subjectTextColor;
+  font-size: 17px;
+  margin-top: 23px;
+  margin-bottom: 50px;
+}
+
+.subjectInfo{
+  font-size: 14px;
+  margin: 10px 0;
+  color: #666;
+
+  span:after{
+    content: "|";
+    margin: 0 10px;
+  }
+
+  span:last-child:after{
+    content: "";
+  }
+}
+
 .subjectTitle{
   text-decoration: none;
   color: @titleLinkColor;
+  h1 {
+    margin: 0;
+  }
+}
+
+.subjectBriefing{
+  margin-top: 18px;
 }
 
 @media (max-width: calc(@navWidth + @commonContentWidth + @minimalContentBlank)){
   .index{
     width: calc(100% - @minimalContentBlank);
   }
+
+  .archivedInfo{
+    margin-left: 0!important;
+  }
 }
 
+@media (max-width: calc(@navWidth + @commonContentWidth + @minimalContentBlank)) and (min-width: calc(@responsiveThreshold)){
+  .index{
+    padding-left: 30px;
+  }
+}

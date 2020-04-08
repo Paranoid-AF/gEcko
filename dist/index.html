@@ -15,53 +15,62 @@
       <div class="navClose"></div>
       <div class="navWrapper">
         <div class="siteInfo">
-          <a id="siteInfoLogo" href="#">辉光夜</a>
-          <!-- <a id="siteInfoLogo" href="#"><img src="./usr/logo.png" alt="站点 Logo" /></a> -->
-          <p id="siteInfoDescription"><span id="text">一个博客而已。</span><span id="switch" title="更换文本"></span></p>
+          <a id="siteInfoLogo" href="#">Nixieve</a>
+          <!-- <a id="siteInfoLogo" href="#"><img src="./usr/logo.png" alt="Website Logo" /></a> -->
+          <p id="siteInfoDescription"><span id="text">Just a blog.</span><span id="switch" title="Switch quote"></span></p>
         </div>
         <div class="search">
           <form id="search" method="post" class="searchForm" action="<?php $this->options->siteUrl(); ?>" role="search">
-            <input type="text" id="s" name="s" class="searchInput" placeholder="搜索..." />
+            <input type="text" id="s" name="s" class="searchInput" placeholder="Search..." />
           </form>
           <div class="searchFormFake">
             <div class="searchIconFake"></div>
-            <span class="searchPlaceholderFake">搜索...</span>
+            <span class="searchPlaceholderFake">Search...</span>
           </div>
         </div>
         <div class="category">
-          <a class="categoryLink categoryActive" href="#">首页</a>
-          <a class="categoryLink" href="#">生活</a>
-          <a class="categoryLink" href="#">笔记</a>
-          <a class="categoryLink" href="#">迷因</a>
+          <a class="categoryLink categoryActive" href="#">Home</a>
+          <a class="categoryLink" href="#">Life</a>
+          <a class="categoryLink" href="#">Notes</a>
+          <a class="categoryLink" href="#">Memes</a>
           <div class="linkDivider"></div>
           <div class="pages">
-            <a class="pageLink" href="#">友链</a>
+            <a class="pageLink" href="#">Links</a>
             <a class="pageLink" href="#">RSS</a>
-            <a class="pageLink" href="#">关于</a>
+            <a class="pageLink" href="#">About</a>
           </div>
         </div>
       </div>
       <div class="footer">
         <p class="footerText">
-          © 2020 <a href="#">辉光夜</a>，保留所有权利
+          © 2020 <a href="#">Nixieve</a>, all rights reserved.
         </p>
       </div>
     </div>
 
     <div class="navTitle">
       <div class="navButton"></div>
-      <a class="navText" href="#">辉光夜</a>
+      <a class="navText" href="#">Nixieve</a>
       <div class="navGradient"></div>
     </div>
 
     <div class="container">
       <div class="index">
+        <!-- <h1 class="archivedInfo">Tag: Existance</h1> -->
         <div class="subject">
           <a class="subjectTitle" href="#"><h1>Hello World</h1></a>
           <p class="subjectInfo">
-            <span class="infoCategory">Overkill</span>
-            <span class="infoDate">0202年2月2日</span>
+            <span class="infoCategory" title="Category"><a href="#">Life</a></span><span class="infoDate" title="Date">May 5, 2020</span><span class="infoAuthor" title="Author">by <a href="#">Overkill LLC</a></span>
           </p>
+          <div class="subjectBriefing contentArea">This is surely a demo reel. This is surely a demo reel. This is surely a demo reel. This is surely a demo reel. This is surely a demo reel. This is surely a demo reel. This is surely a demo reel. </div>
+        </div>
+
+        <div class="subject">
+          <a class="subjectTitle" href="#"><h1>Hello World</h1></a>
+          <p class="subjectInfo">
+            <span class="infoCategory contentArea" title="Category"><a href="#">Life</a></span><span class="infoDate" title="Date">May 5, 2020</span><span class="infoAuthor" title="Author">by <a href="#">Overkill LLC</a></span>
+          </p>
+          <div class="subjectBriefing">This is a demo reel.</div>
         </div>
       </div>
     </div>
@@ -74,7 +83,7 @@
           "You are [not] alone.",
           "Making the world a better place.",
           "WELCOME TO THE CHAOS WORLD",
-          "故事还没有结束，只有你还身处无限轮回之中!"
+          "This story has not ended yet, only you are in the infinite loop!"
         ]
       };
     </script>

@@ -4,6 +4,7 @@ const showSearchBox = () => {
   $(".searchFormFake").hide();
   $(".searchForm").show();
   $(".searchInput").focus();
+  $(".search").css("background", "var(--search-box-active, #fff)");
   searchBoxShown = true;
 }
 
@@ -25,6 +26,7 @@ $(".searchInput").blur(()=>{
   if($(".searchInput").val() === ""){
     $(".searchFormFake").show();
     $(".searchForm").hide();
+    $(".search").css("background", "var(--search-box-inactive, #fff)");
     searchBoxShown = false;
   }
 });
