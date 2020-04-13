@@ -54,11 +54,16 @@
   color: @readMoreColor;
   transition: color 0.3s;
   margin-top: 10px;
+  margin-bottom: 20px;
   text-transform: uppercase;
 }
 
 .subjectMore:hover{
   color: @readMoreColorHover;
+}
+
+.pager-wrapper{
+  margin-top: 60px;
 }
 
 @media (max-width: calc(@navWidth + @commonContentWidth + @minimalContentBlank)){
@@ -73,6 +78,6 @@
 
 @media (max-width: calc(@navWidth + @commonContentWidth + @minimalContentBlank)) and (min-width: calc(@responsiveThreshold)){
   .index{
-    padding-left: 30px;
+    padding-left: 0 30px;
   }
 }
