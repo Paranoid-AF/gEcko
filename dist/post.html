@@ -1,0 +1,78 @@
+<!-- <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta charset="<?php $this->options->charset(); ?>"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="UTF-8">
+    <title>POST - gEcko</title>
+  <link href="./static/bundle.css" rel="stylesheet"></head>
+  <body>
+    <div class="navOverlay"></div>
+    <div class="nav">
+      <div class="navClose"></div>
+      <div class="navWrapper">
+        <div class="siteInfo">
+          <a id="siteInfoLogo" href="#">Nixieve</a>
+          <!-- <a id="siteInfoLogo" href="#"><img src="./usr/logo.png" alt="Website Logo" /></a> -->
+          <p id="siteInfoDescription"><span id="text">Just a blog.</span><span id="switch" title="Switch quote"></span></p>
+        </div>
+        <div class="search">
+          <form id="search" method="post" class="searchForm" action="<?php $this->options->siteUrl(); ?>" role="search">
+            <input type="text" id="s" name="s" class="searchInput" placeholder="Search..." />
+          </form>
+          <div class="searchFormFake">
+            <div class="searchIconFake"></div>
+            <span class="searchPlaceholderFake">Search...</span>
+          </div>
+        </div>
+        <div class="category">
+          <a class="categoryLink" href="#">Home</a>
+          <a class="categoryLink categoryActive" href="#">Life</a>
+          <a class="categoryLink" href="#">Notes</a>
+          <a class="categoryLink" href="#">Memes</a>
+          <div class="linkDivider"></div>
+          <div class="pages">
+            <a class="pageLink" href="#">Links</a>
+            <a class="pageLink" href="#">RSS</a>
+            <a class="pageLink" href="#">About</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <p class="footerText">
+          © 2020 <a href="#">Nixieve</a>, all rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <div class="navTitle">
+      <div class="navButton"></div>
+      <a class="navText" href="#">Nixieve</a>
+      <div class="navGradient"></div>
+    </div>
+
+    <div class="container">
+      <div class="post">
+        aaa
+      </div>
+    </div>
+
+
+    <script>
+      var typecho = {
+        splashText: [
+          "World is powered by solitude.",
+          "You are [not] alone.",
+          "Making the world a better place.",
+          "WELCOME TO THE CHAOS WORLD",
+          "This story has not ended yet, only you are in the infinite loop!"
+        ]
+      };
+    </script>
+
+    <script type="text/javascript" src="./static/bundle.js"></script>
+  </body>
+</html>
