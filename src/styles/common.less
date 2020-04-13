@@ -38,6 +38,52 @@ body{
   margin-top: -1em;
 }
 
+.pager{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pager div a {
+  transition: filter 0.3s;
+}
+
+.pager-arrow{
+  font-weight: 800;
+}
+
+.pager span:not([class]){
+  font-weight: 600;
+  color: #c9cacc;
+}
+
+.pager a{
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.5s!important;
+}
+
+.pager a:hover{
+  color: #0BAF76;
+  filter: none;
+}
+
+.pager-pre{
+  flex: 1 1 140px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.pager-num{
+  flex: 1 1 80px; 
+  text-align: center;
+  font-weight: 600;
+}
+
+.pager-next{
+  flex: 1 1 140px; 
+  text-align: right;
+}
+
 @media (max-width: @responsiveThreshold) {
   .container{
     padding-top: 60px;
