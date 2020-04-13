@@ -109,7 +109,7 @@ $(window).scroll(() => {
 const gradientControl = () => {
   let transitionTime = 200;
   if(mobile){
-    if($(window).scrollTop() > 80){
+    if($(window).scrollTop() > 55){
       $(".navGradient").fadeIn(transitionTime);
     }else{
       $(".navGradient").fadeOut(transitionTime);
