@@ -1,8 +1,11 @@
 @import "./content.less";
 
+@indexContentWidth: 1096px;
+@minimalIndexBlank: 40px;
+
 .index{
   margin: 0 auto;
-  width: @commonContentWidth;
+  width: @indexContentWidth;
   height: 100%;
 }
 
@@ -66,9 +69,9 @@
   margin-bottom: 60px;
 }
 
-@media (max-width: calc(@navWidth + @commonContentWidth + @minimalContentBlank)){
+@media (max-width: calc(@navWidth + @indexContentWidth + @minimalIndexBlank)){
   .index{
-    width: calc(100% - @minimalContentBlank);
+    width: calc(100% - @minimalIndexBlank);
   }
 
   .archivedInfo{
@@ -76,8 +79,9 @@
   }
 }
 
-@media (max-width: calc(@navWidth + @commonContentWidth + @minimalContentBlank)) and (min-width: calc(@responsiveThreshold)){
+@media (max-width: calc(@navWidth + @indexContentWidth + @minimalIndexBlank)) and (min-width: calc(@responsiveThreshold)){
   .index{
-    padding-left: 0 30px;
+    width: calc(100% - 2 * @blankPadding);
+    padding: 0 @blankPadding;
   }
 }

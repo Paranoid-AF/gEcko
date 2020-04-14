@@ -1,6 +1,26 @@
 @import "./content.less";
+@postContentWidth: 1200px;
+@minimalContentBlank: 40px;
 .post{
   margin: 0 auto;
-  width: @commonContentWidth;
+  width: @postContentWidth;
   height: 100%;
+}
+
+
+@media (max-width: calc(@navWidth + @postContentWidth + @minimalContentBlank)){
+  .post{
+    width: calc(100% - @minimalContentBlank);
+  }
+
+  .post{
+    margin-left: 0!important;
+  }
+}
+
+@media (max-width: calc(@navWidth + @postContentWidth + @minimalContentBlank)) and (min-width: calc(@responsiveThreshold)){
+  .post{
+    width: calc(100% - 2 * @blankPadding);
+    padding: 0 @blankPadding;
+  }
 }
