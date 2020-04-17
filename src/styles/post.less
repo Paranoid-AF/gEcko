@@ -3,18 +3,25 @@
 @minimalContentBlank: 40px;
 .post{
   margin: 0 auto;
+  margin-top: 20px;
   width: @postContentWidth;
   height: 100%;
+}
+
+.post-content{
+  font-size: 18.5px;
+}
+
+.post-title{
+  font-size: 42px;
+  font-weight: 600;
+  color: @postTitleColor;
 }
 
 
 @media (max-width: calc(@navWidth + @postContentWidth + @minimalContentBlank)){
   .post{
     width: calc(100% - @minimalContentBlank);
-  }
-
-  .post{
-    margin-left: 0!important;
   }
 }
 

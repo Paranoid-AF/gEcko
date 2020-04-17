@@ -1,7 +1,7 @@
 import "./search.js";
 import $ from "jquery";
 var mobile = false, forceOn = false;
-const responsiveThreshold = 765;
+const responsiveThreshold = 749;
 const navTransition = 0.4; // second
 const calibrateSize = () => {
   mobile = $(window).width() < responsiveThreshold;
