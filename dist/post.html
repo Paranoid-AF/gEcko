@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="UTF-8">
     <title>POST - gEcko</title>
-  <link href="./static/bundle.css" rel="stylesheet"></head>
+  <link href="./static/bundle.css" rel="stylesheet">
+</head>
   <body>
     <div class="navOverlay"></div>
     <div class="nav">
@@ -67,6 +68,13 @@
           <p>But I'm not god yet.</p>
           <p>But I'm not god yet.</p>
           <p>But I'm not god yet.</p>
+          <pre><code class="cpp">
+using namespace std;
+int main(){
+  print("Hello world");
+  return;
+}
+          </code></pre>
           <p>But I'm not god yet.</p>
           <p>But I'm not god yet.</p>
           <p>But I'm not god yet.</p>
@@ -108,7 +116,6 @@
       </div>
     </div>
 
-
     <script>
       var pageInfo = {
         splashText: [
@@ -120,8 +127,8 @@
         ],
         isPost: true
       };
+      hljs.initHighlightingOnLoad();
     </script>
-
     <script type="text/javascript" src="./static/bundle.js"></script>
   </body>
 </html>
