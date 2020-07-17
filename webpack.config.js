@@ -6,7 +6,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   externals: {
-    typecho: 'typecho'
+    pageInfo: 'pageInfo'
   },
   entry: "./src/index.js",
   output: {

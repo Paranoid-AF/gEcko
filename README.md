@@ -1,2 +1,2 @@
 # gEcko
-A simple and clean Typecho theme.
+A simple and clean Hugo theme.

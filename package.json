@@ -1,7 +1,7 @@
 {
   "name": "gecko",
   "version": "0.0.1",
-  "description": "A theme for Typecho.",
+  "description": "A theme for Hugo.",
   "author": "Paranoid_AF",
   "license": "MIT",
   "devDependencies": {
@@ -29,6 +29,7 @@
     "start": "webpack-dev-server --mode development"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "uglifyjs-webpack-plugin": "^2.2.0"
   }
 }
