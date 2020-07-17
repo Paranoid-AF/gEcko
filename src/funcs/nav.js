@@ -121,7 +121,7 @@ const gradientControl = () => {
 }
 
 // handle scroll down for transparency
-const scrollThreshold = 30;
+const scrollThreshold = 100;
 var lastScrollY = -1;
 
 var navBarTransparent = false;
