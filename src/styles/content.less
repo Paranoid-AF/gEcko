@@ -5,3 +5,27 @@
   color: @subjectTextColor;
   font-size: 17px;
 }
+
+.contentArea a{
+  color: @contentLinkColor;
+  text-decoration: dashed underline 1px;
+  &:hover{
+    filter: none;
+    color: @contentLinkColorHover;
+    text-decoration: solid underline 1px;
+  }
+}
+
+.contentArea{
+  h2, h3, h4, h5, h6{
+    margin: 10px 0;
+    color: @contentH2;
+    &:after{
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: @contentH2Decoration;
+    }
+  }
+}
