@@ -66,7 +66,7 @@
   top: 0;
   background: @navBackground;
   z-index: 3;
-  transition: left 0.4s;
+  transition: left 0.4s, opacity 0.3s;
 }
 
 .nav::after{
@@ -292,6 +292,10 @@
   color: @footerColor;
 }
 
+.navTitle{
+  display: none;
+}
+
 /* On devices with small screens */
 @media (max-width: @responsiveThreshold) {
   .nav{
@@ -305,5 +309,9 @@
 
   .navGradient{
     display: none;
+  }
+
+  .navTitle{
+    display: block;
   }
 }

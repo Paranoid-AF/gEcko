@@ -6,6 +6,7 @@ const navTransition = 0.4; // second
 const calibrateSize = () => {
   mobile = $(window).width() < responsiveThreshold;
   if(mobile){
+    $(".nav").css("opacity", "1");
     $(".navClose").show();
     if(forceOn){
       $(".nav").show();
@@ -118,3 +119,45 @@ const gradientControl = () => {
     $(".navGradient").fadeOut(transitionTime);
   }
 }
+
+// handle scroll down for transparency
+const scrollThreshold = 30;
+var lastScrollY = -1;
+
+var navBarTransparent = false;
+var isMouseOnNav = false;
+
+$(".nav").mouseenter(()=>{
+  isMouseOnNav = true;
+  handleTransparency();
+});
+$(".nav").mouseleave(()=>{
+  isMouseOnNav = false;
+  handleTransparency();
+});
+
+$(window).scroll((e) => {
+  if(!pageInfo.isPost){
+    return;
+  }
+  if(lastScrollY < window.scrollY){
+      // Scroll down.
+      if(window.scrollY > scrollThreshold){
+          navBarTransparent = true;
+      }
+  }else{
+      // Scroll up.
+      navBarTransparent = false;
+  }
+  handleTransparency();
+  lastScrollY = window.scrollY;
+});
+const handleTransparency = () => {
+  if(!mobile){
+    if(navBarTransparent && !isMouseOnNav){
+      $(".nav").css("opacity", "0.3");
+    }else{
+      $(".nav").css("opacity", "1");
+    }
+  }
+};
