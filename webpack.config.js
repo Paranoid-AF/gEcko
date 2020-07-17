@@ -2,7 +2,6 @@ const path = require('path');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   externals: {
@@ -34,14 +33,7 @@ module.exports = {
         reloadAll: true
       }
     }),
-    new CleanWebpackPlugin(),
-    new UglifyJSPlugin({
-      uglifyOptions: {
-        output: {
-          comments: false,
-        },
-      },
-    })
+    new CleanWebpackPlugin()
   ],
   module: {
     rules: [

@@ -29,7 +29,6 @@
     "start": "webpack-dev-server --mode development"
   },
   "dependencies": {
-    "highlight.js": "^10.1.1",
-    "uglifyjs-webpack-plugin": "^2.2.0"
+    "highlight.js": "^10.1.1"
   }
 }
