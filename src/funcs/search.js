@@ -22,7 +22,6 @@ if($(".searchInput").val() !== ""){
 }
 
 $(".searchInput").blur(()=>{
-  console.log($(".searchInput").val());
   if($(".searchInput").val() === ""){
     $(".searchFormFake").show();
     $(".searchForm").hide();
