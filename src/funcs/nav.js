@@ -157,6 +157,7 @@ function blurNav(){
   $(".navWrapper").css("pointer-events", "none");
   $(".navWrapper").css("opacity", "0.3");
   $(".navWrapper").css("user-select", "none");
+  $(".navContent").fadeIn(250);
 }
 
 function clearifyNav(){
@@ -164,4 +165,5 @@ function clearifyNav(){
   $(".navWrapper").css("pointer-events", "auto");
   $(".navWrapper").css("opacity", "1");
   $(".navWrapper").css("user-select", "auto");
+  $(".navContent").fadeOut(250);
 }
