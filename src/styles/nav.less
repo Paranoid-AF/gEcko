@@ -66,7 +66,8 @@
   top: 0;
   background: @navBackground;
   z-index: 3;
-  transition: left 0.4s, opacity 0.3s;
+  transition: left 0.4s;
+  overflow: hidden;
 }
 
 .nav::after{
@@ -97,6 +98,7 @@
   height: calc(100vh - 26px);
   overflow-y: auto;
   overflow-x: hidden;
+  transition: filter 0.2s, opacity 0.2s;
 }
 
 .siteInfo{

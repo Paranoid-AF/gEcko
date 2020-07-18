@@ -6,7 +6,7 @@ const navTransition = 0.4; // second
 const calibrateSize = () => {
   mobile = $(window).width() < responsiveThreshold;
   if(mobile){
-    $(".nav").css("opacity", "1");
+    clearifyNav();
     $(".navClose").show();
     if(forceOn){
       $(".nav").show();
@@ -125,16 +125,6 @@ const scrollThreshold = 100;
 var lastScrollY = -1;
 
 var navBarTransparent = false;
-var isMouseOnNav = false;
-
-$(".nav").mouseenter(()=>{
-  isMouseOnNav = true;
-  handleTransparency();
-});
-$(".nav").mouseleave(()=>{
-  isMouseOnNav = false;
-  handleTransparency();
-});
 
 $(window).scroll((e) => {
   if(!pageInfo.isPost){
@@ -154,10 +144,22 @@ $(window).scroll((e) => {
 });
 const handleTransparency = () => {
   if(!mobile){
-    if(navBarTransparent && !isMouseOnNav){
-      $(".nav").css("opacity", "0.3");
+    if(navBarTransparent){
+      blurNav();
     }else{
-      $(".nav").css("opacity", "1");
+      clearifyNav();
     }
   }
 };
+
+function blurNav(){
+  $(".navWrapper").css("filter", "blur(10px)");
+  $(".navWrapper").css("pointer-events", "none");
+  $(".navWrapper").css("opacity", "0.3");
+}
+
+function clearifyNav(){
+  $(".navWrapper").css("filter", "none");
+  $(".navWrapper").css("pointer-events", "auto");
+  $(".navWrapper").css("opacity", "1");
+}
