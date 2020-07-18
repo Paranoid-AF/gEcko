@@ -1,3 +1,4 @@
+@import "./color.less";
 @import "./content.less";
 @postContentWidth: 1200px;
 @minimalContentBlank: 40px;
@@ -16,6 +17,7 @@
   width: 100%;
   height: calc(100vh - 37.8px);
   z-index: 2;
+  color: @navTableOfContentColor;
 }
 
 .post-content{
@@ -30,6 +32,58 @@
 
 .comment{
   margin-top: 30px;
+}
+
+.navContentWrapper{
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 10px;
+  padding-top: 20px;
+}
+
+.navContentWrapper .backToTop{
+  float: left;
+  background: url("../assets/top.svg");
+  font-size: 16px;
+  height: 28px;
+  font-weight: 600;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  background-position: -3px -2px;
+  padding-left: 28px;
+  padding-top: 3.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+}
+
+.navContentWrapper .backToTop:hover{
+  color: @navTableOfContentColorHover;
+  background-image: url("../assets/topHover.svg");
+}
+
+.navContentWrapper .close{
+  float: right;
+  width: 15px;
+  height: 15px;
+  margin-top: 4px;
+  margin-right: 22px;
+  background: url("../assets/closeContent.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.navContentWrapper .close:hover{
+  background-image: url("../assets/closeContentHover.svg");
+}
+
+.navContentWrapper .list{
+  width: calc(100% - 10px);
+  height: calc(100vh - 90px);
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 @media (max-width: calc(@navWidth + @postContentWidth + @minimalContentBlank)){

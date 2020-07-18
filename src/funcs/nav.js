@@ -152,6 +152,10 @@ const handleTransparency = () => {
   }
 };
 
+$(window).on('load', function(){
+  blurNav();
+});
+
 function blurNav(){
   $(".navWrapper").css("filter", "blur(10px)");
   $(".navWrapper").css("pointer-events", "none");
@@ -167,3 +171,14 @@ function clearifyNav(){
   $(".navWrapper").css("user-select", "auto");
   $(".navContent").fadeOut(200);
 }
+
+$(".navContentWrapper .backToTop").click(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+$(".navContentWrapper .close").click(() => {
+  clearifyNav();
+});
