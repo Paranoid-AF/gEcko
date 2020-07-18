@@ -165,5 +165,5 @@ function clearifyNav(){
   $(".navWrapper").css("pointer-events", "auto");
   $(".navWrapper").css("opacity", "1");
   $(".navWrapper").css("user-select", "auto");
-  $(".navContent").fadeOut(250);
+  $(".navContent").fadeOut(200);
 }
