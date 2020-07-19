@@ -153,8 +153,13 @@ const handleTransparency = () => {
 };
 
 $(window).on('load', function(){
-  blurNav();
+  prepareNavContent();
+  blurNav(); // TODO: Remove when ready.
 });
+
+function prepareNavContent(){
+
+}
 
 function blurNav(){
   $(".navWrapper").css("filter", "blur(10px)");
