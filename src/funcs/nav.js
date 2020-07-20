@@ -202,7 +202,7 @@ function prepareNavContent(){
 function blurNav(){
   $(".navWrapper").css("filter", "blur(10px)");
   $(".navWrapper").css("pointer-events", "none");
-  $(".navWrapper").css("opacity", "0.3");
+  $(".navWrapper").css("opacity", "0.2");
   $(".navWrapper").css("user-select", "none");
   $(".navContent").css("opacity", "1");
   $(".navContent").css("z-index", "2");
