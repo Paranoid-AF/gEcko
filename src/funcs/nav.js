@@ -165,10 +165,10 @@ function prepareNavContent(){
   function getText(elem){
     return elem.innerText;
   }
-  const root = document.createElement("ol");
-  root.setAttribute("level", getLevel(titles[0]));
-  document.querySelector(".navContentWrapper .list").append(root);
-  let current = root;
+  let current = document.createElement("ol");
+  current.setAttribute("level", getLevel(titles[0]));
+  document.querySelector(".navContentWrapper .list").append(current);
+
   titles.forEach((elem, index) => {
     const level = getLevel(titles[index]);
     if(index + 1 < titles.length){
