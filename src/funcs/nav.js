@@ -158,8 +158,13 @@ $(window).on('load', function(){
 });
 
 function prepareNavContent(){
-  document.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((elem) => {
-    console.log(elem.innerText);
+  const titles = document.querySelectorAll("h1, h2, h3, h4, h5, h6")
+  titles.forEach((elem, index) => {
+    const level = Number(elem.tagName.match(/\d+/g).pop());
+    const text = elem.innerText;
+    if(!isNaN(level)){
+      console.log(index, text, level);
+    }
   })
 }
 

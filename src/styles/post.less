@@ -85,7 +85,40 @@
   width: calc(100% - 10px);
   height: calc(100vh - 90px);
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
+  ol:before, li:after{
+    content: ' ';
+    display: block;
+    margin-bottom: 10px;
+  }
+  li{
+    color: @navContentListColorNumber;
+  }
+  li > span{
+    color: @navContentListColor;
+    cursor: pointer;
+    user-select: none;
+  }
+  li .active > span{
+    color: @navContentListColorActive;
+    font-weight: 600;
+  }
+  ol{
+    counter-reset: item;
+    list-style: none;
+    padding-left: 1.5em;
+  }
+  > ol{
+    padding-left: 0;
+  }
+  li:before{
+    counter-increment: item;
+    content: counter(item)". ";
+  }
+  
+  ol ol li:before{
+    content: counters(item,".")" ";
+  }
 }
 
 @media (max-width: calc(@navWidth + @postContentWidth + @minimalContentBlank)){
