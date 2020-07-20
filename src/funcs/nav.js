@@ -158,7 +158,7 @@ $(window).on('load', function(){
 });
 
 function prepareNavContent(){
-  const titles = document.querySelectorAll("h1, h2, h3, h4, h5, h6")
+  const titles = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")];
   titles.forEach((elem, index) => {
     const level = Number(elem.tagName.match(/\d+/g).pop());
     const text = elem.innerText;
