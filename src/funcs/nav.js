@@ -159,13 +159,44 @@ $(window).on('load', function(){
 
 function prepareNavContent(){
   const titles = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")];
+  function getLevel(elem){
+    return Number(elem.tagName.match(/\d+/g).pop());
+  }
+  function getText(elem){
+    return elem.innerText;
+  }
+  const root = document.createElement("ol");
+  root.setAttribute("level", getLevel(titles[0]));
+  document.querySelector(".navContentWrapper .list").append(root);
+  let current = root;
   titles.forEach((elem, index) => {
-    const level = Number(elem.tagName.match(/\d+/g).pop());
-    const text = elem.innerText;
-    if(!isNaN(level)){
-      console.log(index, text, level);
+    const level = getLevel(titles[index]);
+    if(index + 1 < titles.length){
+      const nextLevel = getLevel(titles[index + 1]);
+      if(!isNaN(level)){
+        if(current.getAttribute("level") > level.toString()){
+          while(current.getAttribute("level") > level.toString()){
+            if(current.parentElement !== null && current.parentElement.parentElement !== null && current.parentElement.parentElement.tagName.toLowerCase() === "ol"){
+              current = current.parentElement.parentElement;
+            }else{
+              $(current.parentElement).append(`<ol level=${getLevel(elem).toString()}></ol>`);
+              current = current.parentElement.lastChild;
+              console.log(current);
+              break;
+            }
+          }
+        }
+        if(level < nextLevel){
+          $(current).append(`<li><span>${getText(elem)}</span><ol level=${getLevel(titles[index+1]).toString()}></ol></li>`);
+          current = current.lastChild.lastChild;
+        }else{
+          $(current).append(`<li><span>${getText(elem)}</span></li>`);
+        }
+        }
+    }else{
+      $(current).append(`<li><span>${getText(elem)}</span></li>`);
     }
-  })
+  });
 }
 
 function blurNav(){
