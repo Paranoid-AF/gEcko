@@ -169,6 +169,7 @@ function blurNav(){
   $(".navWrapper").css("opacity", "0.3");
   $(".navWrapper").css("user-select", "none");
   $(".navContent").css("opacity", "1");
+  $(".navContent").css("z-index", "2");
 }
 
 function clearifyNav(){
@@ -177,6 +178,7 @@ function clearifyNav(){
   $(".navWrapper").css("opacity", "1");
   $(".navWrapper").css("user-select", "auto");
   $(".navContent").css("opacity", "0");
+  $(".navContent").css("z-index", "-1");
 }
 
 $(".navContentWrapper .backToTop").click(() => {
