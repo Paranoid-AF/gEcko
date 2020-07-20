@@ -158,7 +158,9 @@ $(window).on('load', function(){
 });
 
 function prepareNavContent(){
-
+  document.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((elem) => {
+    console.log(elem.innerText);
+  })
 }
 
 function blurNav(){
@@ -166,7 +168,7 @@ function blurNav(){
   $(".navWrapper").css("pointer-events", "none");
   $(".navWrapper").css("opacity", "0.3");
   $(".navWrapper").css("user-select", "none");
-  $(".navContent").fadeIn(250);
+  $(".navContent").css("opacity", "1");
 }
 
 function clearifyNav(){
@@ -174,7 +176,7 @@ function clearifyNav(){
   $(".navWrapper").css("pointer-events", "auto");
   $(".navWrapper").css("opacity", "1");
   $(".navWrapper").css("user-select", "auto");
-  $(".navContent").fadeOut(200);
+  $(".navContent").css("opacity", "0");
 }
 
 $(".navContentWrapper .backToTop").click(() => {
