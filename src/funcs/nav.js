@@ -293,9 +293,11 @@ const observer = new IntersectionObserver((entries)=>{
         return true;
       }
     });
-    targetIndex = titles.indexOf(lastTrue.target) - 1;
-    if(targetIndex < 0){
-      targetIndex = 0;
+    if(lastTrue !== null){
+      targetIndex = titles.indexOf(lastTrue.target) - 1;
+      if(targetIndex < 0){
+        targetIndex = 0;
+      }
     }
   }
   if(targetIndex >= 0){
