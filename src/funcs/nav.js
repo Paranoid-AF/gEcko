@@ -170,6 +170,11 @@ $(window).on('load', function(){
       if(!pageInfo.isPost){
         return;
       }
+      if(window.pageYOffset <= 0){
+        $(".navContentWrapper .backToTop").css("opacity", "0");
+      }else{
+        $(".navContentWrapper .backToTop").css("opacity", "1");
+      }
       if(lastScrollY < window.pageYOffset){
           // Scroll down.
           navBarTransparent = true;
