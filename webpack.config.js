@@ -5,8 +5,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   externals: {
-    pageInfo: 'pageInfo',
-    hljs: 'hljs' // Highlight.js is way too huge for this bundle, so we use external js file. But styles are still included.
+    pageInfo: 'pageInfo'
   },
   entry: "./src/index.js",
   output: {

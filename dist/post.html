@@ -150,8 +150,15 @@ int main(){
         isPost: true
       };
     </script>
-    
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/highlight.min.js"></script>
     <script type="text/javascript" src="./static/bundle.js"></script>
+    <!-- Use highlight.js as external file, to speed things up. -->
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/highlight.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+          document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+          });
+      });
+    </script>
   </body>
 </html>
