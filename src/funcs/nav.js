@@ -147,7 +147,7 @@ $(window).on('load', function(){
         setTimeout(() => {
           lockActive = false;
           setActive(-1, e.target.parentElement);
-        }, 1);
+        }, 100);
         
         setTimeout(() => {
           lockClearify = false;
