@@ -201,7 +201,7 @@ function prepareNavContent(){
 var lockBlur = false;
 var lockClearify = false;
 function blurNav(){
-  if(!lockBlur && $(".navContent").css("z-index") !== "2"){
+  if(!lockBlur){
     $(".navWrapper").css("filter", "blur(10px)");
     $(".navWrapper").css("pointer-events", "none");
     $(".navWrapper").css("opacity", "0.2");
@@ -212,7 +212,7 @@ function blurNav(){
 }
 
 function clearifyNav(){
-  if(!lockClearify && $(".navContent").css("z-index") !== "-1"){
+  if(!lockClearify){
     $(".navWrapper").css("filter", "none");
     $(".navWrapper").css("pointer-events", "auto");
     $(".navWrapper").css("opacity", "1");
