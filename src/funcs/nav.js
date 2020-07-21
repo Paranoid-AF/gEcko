@@ -125,36 +125,71 @@ var lastScrollY = window.pageYOffset;
 
 var navBarTransparent = false;
 
-$(window).scroll((e) => {
-  if(!pageInfo.isPost){
-    return;
-  }
-  if(lastScrollY < window.pageYOffset){
-      // Scroll down.
-      navBarTransparent = true;
-  }else{
-      // Scroll up.
-      navBarTransparent = false;
-  }
-  handleTransparency();
-  lastScrollY = window.pageYOffset;
-});
-const handleTransparency = () => {
-  if(!mobile){
-    if(navBarTransparent){
-      blurNav();
-    }else{
-      clearifyNav();
-    }
-  }
-};
 
 $(window).on('load', function(){
-  lastScrollY = window.pageYOffset;
-  prepareNavContent();
-  titles.forEach((elem) => {
-    observer.observe(elem);
-  })
+  if(pageInfo.isPost){
+    try{
+      lastScrollY = window.pageYOffset;
+      prepareNavContent();
+      titles.forEach((elem) => {
+        observer.observe(elem);
+      });
+    }catch(err){
+      $(".navContent").css("display", "none");
+      lockBlur = true;
+    }
+
+    $(".navContentWrapper .list").click((e) => {
+      if(e.target.tagName.toLowerCase() === "span"){
+        lockClearify = true;
+        lockActive = true;
+        titles[e.target.parentElement.getAttribute("index")].scrollIntoView();
+        setTimeout(() => {
+          lockActive = false;
+          setActive(-1, e.target.parentElement);
+        }, 1);
+        
+        setTimeout(() => {
+          lockClearify = false;
+        }, 500);
+      }
+    });
+
+    $(".navContentWrapper .backToTop").click(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+    
+    $(".navContentWrapper .close").click(() => {
+      clearifyNav();
+    });
+
+    $(window).scroll((e) => {
+      if(!pageInfo.isPost){
+        return;
+      }
+      if(lastScrollY < window.pageYOffset){
+          // Scroll down.
+          navBarTransparent = true;
+      }else{
+          // Scroll up.
+          navBarTransparent = false;
+      }
+      handleTransparency();
+      lastScrollY = window.pageYOffset;
+    });
+    const handleTransparency = () => {
+      if(!mobile){
+        if(navBarTransparent){
+          blurNav();
+        }else{
+          clearifyNav();
+        }
+      }
+    };
+  }
 });
 
 const titles = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")];
@@ -167,7 +202,7 @@ function prepareNavContent(){
   }
   let current = document.createElement("ol");
   current.setAttribute("level", getLevel(titles[0]));
-  document.querySelector(".navContentWrapper .list").append(current);
+  $(document.querySelector(".navContentWrapper .list")).append(current);
 
   titles.forEach((elem, index) => {
     const level = getLevel(titles[index]);
@@ -222,34 +257,11 @@ function clearifyNav(){
   }
 }
 
-$(".navContentWrapper .backToTop").click(() => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
 
-$(".navContentWrapper .close").click(() => {
-  clearifyNav();
-});
 
 var lockActive = false;
 
-$(".navContentWrapper .list").click((e) => {
-  if(e.target.tagName.toLowerCase() === "span"){
-    lockClearify = true;
-    lockActive = true;
-    titles[e.target.parentElement.getAttribute("index")].scrollIntoView();
-    setTimeout(() => {
-      lockActive = false;
-      setActive(-1, e.target.parentElement);
-    }, 1);
-    
-    setTimeout(() => {
-      lockClearify = false;
-    }, 500);
-  }
-});
+
 
 function setActive(index, elem = null){
   if(!lockActive){
