@@ -129,7 +129,6 @@ $(window).scroll((e) => {
   if(!pageInfo.isPost){
     return;
   }
-  console.log(window.pageYOffset, lastScrollY)
   if(lastScrollY < window.pageYOffset){
       // Scroll down.
       navBarTransparent = true;
