@@ -125,8 +125,19 @@ var lastScrollY = window.pageYOffset;
 
 var navBarTransparent = false;
 
-
+let titles;
 $(window).on('load', function(){
+  const urlHash = decodeURI(window.location.hash).match(/\#(.*)/);
+  titles = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")];
+
+  titles.every((elem) => {
+    if(urlHash !== null && elem.innerText === urlHash[1]){
+      elem.scrollIntoView();
+      return false;
+    }
+    return true;
+  });
+
   if(pageInfo.isPost){
     try{
       lastScrollY = window.pageYOffset;
@@ -143,7 +154,9 @@ $(window).on('load', function(){
       if(e.target.tagName.toLowerCase() === "span"){
         lockClearify = true;
         lockActive = true;
-        titles[e.target.parentElement.getAttribute("index")].scrollIntoView();
+        const targetTitle = titles[e.target.parentElement.getAttribute("index")];
+        targetTitle.scrollIntoView();
+        window.location.hash = encodeURI(targetTitle.innerText);
         setTimeout(() => {
           lockActive = false;
           setActive(-1, e.target.parentElement);
@@ -194,7 +207,6 @@ $(window).on('load', function(){
   }
 });
 
-const titles = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")];
 function prepareNavContent(){
   function getLevel(elem){
     return Number(elem.tagName.match(/\d+/g).pop());
@@ -260,10 +272,7 @@ function clearifyNav(){
 }
 
 
-
 var lockActive = false;
-
-
 
 function setActive(index, elem = null){
   if(!lockActive){
