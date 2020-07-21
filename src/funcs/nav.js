@@ -173,11 +173,8 @@ $(window).on('load', function(){
       if(lastScrollY < window.pageYOffset){
           // Scroll down.
           navBarTransparent = true;
-      }else{
-          // Scroll up.
-          navBarTransparent = false;
+          handleTransparency();
       }
-      handleTransparency();
       lastScrollY = window.pageYOffset;
     });
     const handleTransparency = () => {
