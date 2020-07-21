@@ -185,8 +185,10 @@ $(window).on('load', function(){
       }
       if(window.pageYOffset <= 0){
         $(".navContentWrapper .backToTop").css("opacity", "0");
+        $(".navContentWrapper .backToTop").css("pointer-events", "none");
       }else{
         $(".navContentWrapper .backToTop").css("opacity", "1");
+        $(".navContentWrapper .backToTop").css("pointer-events", "auto");
       }
       if(lastScrollY < window.pageYOffset){
           // Scroll down.
