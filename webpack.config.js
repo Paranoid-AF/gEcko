@@ -9,7 +9,7 @@ module.exports = {
   },
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'dist/static'),
+    path: path.resolve(__dirname, 'dist/static/js'),
     filename: 'bundle.js',
   },
   optimization: {
@@ -27,7 +27,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'bundle.css',
+      filename: '../css/bundle.css',
       options: {
         hmr: process.env.NODE_ENV === 'development',
         reloadAll: true
