@@ -1,0 +1,52 @@
+name: Build
+on:
+  push:
+    branches:
+      - master
+
+env:
+  NODE_VERSION: '12.18.2'                # set this to the node version to use
+
+jobs:
+  build-and-release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: Set up environment and Build.
+      run: |
+        npm install --global yarn
+        yarn
+        yarn build
+    - name: Remove testing files.
+      run: |
+        cd ./dist
+        ls | grep -P "^test\-.*" | xargs -d"\n" rm
+    - name: Pack up.
+      run: |
+        mv ./dist ./gEcko
+        zip -qq -r ./build.zip ./gEcko
+    - name: Create Release.
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: build${{ github.run_number }}
+        release_name: Build ${{ github.run_number }}
+        draft: false
+        prerelease: false
+    - name: Upload Release Asset.
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./build.zip
+        asset_name: gEcko-hugo_build${{ github.run_number }}.zip
+        asset_content_type: application/zip

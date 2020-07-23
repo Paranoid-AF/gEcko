@@ -11,8 +11,8 @@
       <p id="siteInfoDescription"><span id="text">Just a blog.</span><span id="switch" title="Switch quote"></span></p>
     </div>
     <div class="search">
-      <form baseUrl="{{ .Site.BaseURL }}" engine="https://www.google.com/search?q=%KEYWORD%" role="search">
-        <input type="text" name="s" class="searchInput" placeholder="Search..." />
+      <form id="search" class="searchForm" baseUrl="{{ .Site.BaseURL }}" engine="{{ if (isset .Site.Params "searchengine") }}{{ .Site.Params.searchengine }}{{ else }}https://www.google.com/search?q=%KEYWORD%{{ end }}" role="search">
+        <input type="text" id="s" name="s" class="searchInput" placeholder="Search..." />
       </form>
       <div class="searchFormFake">
         <div class="searchIconFake"></div>

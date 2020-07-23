@@ -7,6 +7,6 @@
     <meta charset="UTF-8">
     <title>{{ if not .IsHome }}{{ with .Title }}{{ . }} - {{ end }}{{ end }}{{ .Site.Title }}</title>
     <link rel="canonical" href="{{ .Permalink }}" />
-    <link href="{{ relURL (.) }}bundle.css" rel="stylesheet">
-    {{ "/css/remixicon/remixicon.css" | absURL }}
+    <link href="{{ "/css/bundle.css" | relURL }}" rel="stylesheet">
+    
 </head>

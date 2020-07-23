@@ -1,0 +1,22 @@
+<script>
+    var pageInfo = {
+      splashText: [
+        "World is powered by solitude.",
+        "You are [not] alone.",
+        "Making the world a better place.",
+        "WELCOME TO THE CHAOS WORLD",
+        "This story has not ended yet, only you are in the infinite loop!"
+      ],
+      isPost: true
+    };
+  </script>
+  <script type="text/javascript" src="{{ "/js/bundle.js" | relURL }}"></script>
+  <!-- Use highlight.js as external file, to speed things up. -->
+  <script src="{{ if (isset .Site.Params "hljspath") }}{{ .Site.Params.hljspath }}{{ else }}//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/highlight.min.js{{ end }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
+    });
+  </script>

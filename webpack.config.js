@@ -75,7 +75,7 @@ module.exports = {
       publicPath: false
     },
     contentBase: path.resolve(__dirname, 'dist'),
-    publicPath: '/static/', // 模拟 output 的目录
+    publicPath: '/static/js', // 模拟 output 的目录
     open: true, // 启动后自动打开浏览器
     hot: true, // 热重载
     watchContentBase: true, // 手动对 dist 内的文件进行更改会造成页面强制刷新
