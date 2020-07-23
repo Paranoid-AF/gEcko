@@ -6,7 +6,7 @@ on:
         description: "Release Title"
         required: true
       r_version:
-        description: "Version Code"
+        description: "Build Number"
         required: true
 
 env:
