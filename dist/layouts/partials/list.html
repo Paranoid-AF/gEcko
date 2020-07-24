@@ -4,10 +4,10 @@
     <div class="subject">
       <a class="subjectTitle" href="{{ .Permalink }}"><h1>{{ .Title }}</h1></a>
       <p class="subjectInfo">
-        {{with .Params.categories}}<span class="infoCategory" title="Category"><a href="{{ $.Site.BaseURL }}categories/{{ . | urlize | lower }}">{{ . }}</a></span>{{ end }}<span class="infoDate" title="Date">{{ .Date.Format "Jan 2, 2006" }}</span>{{with .Params.author}}<span class="infoAuthor" title="Author">by <a href="{{ $.Site.BaseURL }}authors/{{ . | urlize | lower }}">{{ . }}</a></span>{{ end }}
+        {{- partial "info.html" . -}}
       </p>
       <div class="subjectBriefing contentArea">{{ .Summary }}</div>
-      <a class="subjectMore" href="#">Read More &raquo;</a>
+      <a class="subjectMore" href="{{ .Permalink }}">Read More &raquo;</a>
     </div>
     {{ end }}
     <div class="pager-wrapper">

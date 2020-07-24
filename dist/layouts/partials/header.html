@@ -4,9 +4,9 @@
   <div class="navWrapper">
     <div class="siteInfo">
       {{ if (isset .Site.Params "sitelogo") }}
-      <a id="siteInfoLogo" href="#"><img src="{{ .Site.Params.sitelogo }}" alt="{{ .Site.Title }}" /></a>
+      <a id="siteInfoLogo" href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.sitelogo }}" alt="{{ .Site.Title }}" /></a>
       {{ else }}
-      <a id="siteInfoLogo" href="#">{{ .Site.Title }}</a>
+      <a id="siteInfoLogo" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
       {{ end }}
       <p id="siteInfoDescription"><span id="text">{{ with .Params.subtitle }}{{ . }}{{ end}}</span><span id="switch" title="Switch quote"></span></p>
     </div>
@@ -26,7 +26,12 @@
       {{ end }}
       <div class="linkDivider"></div>
       <div class="pages">
-        <a class="pageLink" href="{{ .Site.BaseURL }}/index.xml">RSS</a>
+        {{ if or (.IsHome) (isset $.Params "date") }}
+          <a class="pageLink" href="{{ .Site.BaseURL }}index.xml">RSS</a>
+        {{ else}}
+          <a class="pageLink" href="{{ .Site.BaseURL }}index.xml">RSS</a>
+          <a class="pageLink" href="{{ .Permalink }}index.xml">RSS of this</a>
+        {{ end }}
       </div>
     </div>
   </div>

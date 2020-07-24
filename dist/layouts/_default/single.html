@@ -2,7 +2,7 @@
 <div class="post">
     <div class="post-title">{{ .Title | markdownify }}</div>
     <p class="subjectInfo">
-        {{with .Params.categories}}<span class="infoCategory" title="Category"><a href="{{ $.Site.BaseURL }}categories/{{ . | urlize | lower }}">{{ . }}</a></span>{{ end }}<span class="infoDate" title="Date">{{ .Date.Format "Jan 2, 2006" }}</span>{{with .Params.author}}<span class="infoAuthor" title="Author">by <a href="{{ $.Site.BaseURL }}authors/{{ . | urlize | lower }}">{{ . }}</a></span>{{ end }}
+        {{- partial "info.html" . -}}
     </p>
     <div class="post-content contentArea">
         {{ .Content }}
