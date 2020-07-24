@@ -20,10 +20,10 @@
       </div>
     </div>
     <div class="category">
-      <a class="categoryLink" href="{{ .Site.BaseURL }}">Home</a>
-      <a class="categoryLink categoryActive" href="#">Life</a>
-      <a class="categoryLink" href="#">Notes</a>
-      <a class="categoryLink" href="#">Memes</a>
+      <a class="{{ if .IsHome }}categoryLink categoryActive{{ else }}categoryLink{{ end }}" href="{{ .Site.BaseURL }}">Home</a>
+      {{ range $name, $items := .Site.Taxonomies.categories }}
+      <a class="categoryLink" href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">{{ $name }}</a>
+      {{ end }}
       <div class="linkDivider"></div>
       <div class="pages">
         <a class="pageLink" href="#">Links</a>
@@ -45,7 +45,7 @@
   </div>
   <div class="footer">
     <p class="footerText">
-      © 2020 <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>, all rights reserved.
+      &copy; 2020 <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>, all rights reserved.
     </p>
   </div>
 </div>

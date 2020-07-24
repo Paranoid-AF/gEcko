@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    {{- partial "head.html" . -}}
+    <body>
+        <div class="container">
+            <div class="post">
+                <div class="post-title">Page not found!</div>
+                <div class="post-content contentArea">
+                    <p>It seems that you've visited the wrong page.</p>
+                    <div class="pager-pre">
+                        <a href="{{ .Site.BaseURL }}">Close this page, open the home <span class="pager-arrow">&gt;</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{- partial "footer.html" . -}}
+    </body>
+</html>
+
+
