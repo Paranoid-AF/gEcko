@@ -8,7 +8,7 @@
       {{ else }}
       <a id="siteInfoLogo" href="#">{{ .Site.Title }}</a>
       {{ end }}
-      <p id="siteInfoDescription"><span id="text">Just a blog.</span><span id="switch" title="Switch quote"></span></p>
+      <p id="siteInfoDescription"><span id="text">{{ with .Params.subtitle }}{{ . }}{{ end}}</span><span id="switch" title="Switch quote"></span></p>
     </div>
     <div class="search">
       <form id="search" class="searchForm" baseUrl="{{ .Site.BaseURL }}" engine="{{ if (isset .Site.Params "searchengine") }}{{ .Site.Params.searchengine }}{{ else }}https://www.google.com/search?q=%KEYWORD%{{ end }}" role="search">
@@ -22,13 +22,11 @@
     <div class="category">
       <a class="{{ if .IsHome }}categoryLink categoryActive{{ else }}categoryLink{{ end }}" href="{{ .Site.BaseURL }}">Home</a>
       {{ range $name, $items := .Site.Taxonomies.categories }}
-      <a class="categoryLink" href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">{{ $name }}</a>
+      <a class="{{ if eq ($.Params.categories | urlize | lower) $name }}categoryLink categoryActive{{ else }}categoryLink{{ end }}" href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">{{ $name }}</a>
       {{ end }}
       <div class="linkDivider"></div>
       <div class="pages">
-        <a class="pageLink" href="#">Links</a>
-        <a class="pageLink" href="#">RSS</a>
-        <a class="pageLink" href="#">About</a>
+        <a class="pageLink" href="{{ .Site.BaseURL }}/index.xml">RSS</a>
       </div>
     </div>
   </div>

@@ -1,0 +1,24 @@
+<div class="index">
+    <!-- <h1 class="archivedInfo">Tag: Existance</h1> -->
+    {{ range .Paginator.Pages }}
+    <div class="subject">
+      <a class="subjectTitle" href="{{ .Permalink }}"><h1>{{ .Title }}</h1></a>
+      <p class="subjectInfo">
+        {{with .Params.categories}}<span class="infoCategory" title="Category"><a href="{{ $.Site.BaseURL }}categories/{{ . | urlize | lower }}">{{ . }}</a></span>{{ end }}<span class="infoDate" title="Date">{{ .Date.Format "Jan 2, 2006" }}</span>{{with .Params.author}}<span class="infoAuthor" title="Author">by <a href="{{ $.Site.BaseURL }}authors/{{ . | urlize | lower }}">{{ . }}</a></span>{{ end }}
+      </p>
+      <div class="subjectBriefing contentArea">{{ .Summary }}</div>
+      <a class="subjectMore" href="#">Read More &raquo;</a>
+    </div>
+    {{ end }}
+    <div class="pager-wrapper">
+      <div class="pager">
+        {{ if $.Paginator.HasPrev }}
+        <div class="pager-pre"><a href="{{ $.Paginator.Prev.URL }}"><span class="pager-arrow"><</span> Previous</a></div>
+        {{ end }}
+        <div class="pager-num"><span>{{ $.Paginator.PageNumber }} / {{ $.Paginator.TotalPages }}</span></div>
+        {{ if $.Paginator.HasNext }}
+        <div class="pager-next"><a href="{{ $.Paginator.Next.URL }}">Next <span class="pager-arrow">></span></a></div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
