@@ -8,7 +8,7 @@
       {{ else }}
       <a id="siteInfoLogo" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
       {{ end }}
-      <p id="siteInfoDescription"><span id="text">{{ with .Params.subtitle }}{{ . }}{{ end}}</span><span id="switch" title="Switch quote"></span></p>
+      <p id="siteInfoDescription"><span id="text">{{ with $.Site.Params.subtitle }}{{ . }}{{ end }}</span><span id="switch" title="Switch quote"></span></p>
     </div>
     <div class="search">
       <form id="search" class="searchForm" baseUrl="{{ .Site.BaseURL }}" engine="{{ if (isset .Site.Params "searchengine") }}{{ .Site.Params.searchengine }}{{ else }}https://www.google.com/search?q=%KEYWORD%{{ end }}" role="search">
