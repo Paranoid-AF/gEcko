@@ -22,7 +22,7 @@
     <div class="category">
       <a class="{{ if .IsHome }}categoryLink categoryActive{{ else }}categoryLink{{ end }}" href="{{ .Site.BaseURL }}">Home</a>
       {{ range $name, $items := .Site.Taxonomies.categories }}
-      <a class="{{ if or ( and (eq $.Type "categories") (eq ($.Title | urlize | lower) $name) ) (eq ($.Params.categories | urlize | lower) $name) }}categoryLink categoryActive{{ else }}categoryLink{{ end }}" href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">{{ $name }}</a>
+      <a class="{{ if or ( and (eq $.Type "categories") (eq ($.Title | urlize | lower) ($name | urlize | lower)) ) (eq ($.Params.categories | urlize | lower) ($name | urlize | lower)) }}categoryLink categoryActive{{ else }}categoryLink{{ end }}" href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">{{ $name }}</a>
       {{ end }}
       <div class="linkDivider"></div>
       <div class="pages">
