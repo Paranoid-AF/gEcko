@@ -1,11 +1,8 @@
 <script>
     var pageInfo = {
       splashText: [
-        "World is powered by solitude.",
-        "You are [not] alone.",
-        "Making the world a better place.",
-        "WELCOME TO THE CHAOS WORLD",
-        "This story has not ended yet, only you are in the infinite loop!"
+        {{ range $.Site.Params.mottos }}"{{ . }}",
+        {{ end }}
       ],
       isPost: {{if .IsPage}}true{{ else }}false{{ end }}
     };
