@@ -7,7 +7,7 @@
         "WELCOME TO THE CHAOS WORLD",
         "This story has not ended yet, only you are in the infinite loop!"
       ],
-      isPost: true
+      isPost: {{if .IsPage}}true{{ else }}false{{ end }}
     };
   </script>
   <script type="text/javascript" src="{{ "/js/bundle.js" | relURL }}"></script>
