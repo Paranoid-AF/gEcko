@@ -2,20 +2,15 @@
 # See https://github.com/gohugoio/hugoThemes#themetoml for an example
 
 name = "gEcko"
-license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
-description = ""
-homepage = "http://example.com/"
+license = "N/A"
+licenselink = "https://github.com/Paranoid-AF/gEcko/blob/master/LICENSE"
+description = "A cool theme for self use."
+homepage = "https://github.com/Paranoid-AF/gEcko"
 tags = []
 features = []
 min_version = "0.41"
 
 [author]
-  name = ""
-  homepage = ""
+  name = "Paranoid_AF"
+  homepage = "https://github.com/Paranoid-AF"
 
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
