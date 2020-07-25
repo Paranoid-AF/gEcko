@@ -12,13 +12,13 @@
     {{ end }}
     <div class="pager-wrapper">
       <div class="pager">
-        {{ if $.Paginator.HasPrev }}
-        <div class="pager-pre"><a href="{{ $.Paginator.Prev.URL }}"><span class="pager-arrow"><</span> Previous</a></div>
-        {{ end }}
+        
+        <div class="pager-pre"{{ if not $.Paginator.HasPrev }} style="visibility: hidden;"{{ end }}><a href="{{ if $.Paginator.HasPrev }}{{ $.Paginator.Prev.URL }}{{ else }}#{{ end }}"><span class="pager-arrow"><</span> Previous</a></div>
+        
         <div class="pager-num"><span>{{ $.Paginator.PageNumber }} / {{ $.Paginator.TotalPages }}</span></div>
-        {{ if $.Paginator.HasNext }}
-        <div class="pager-next"><a href="{{ $.Paginator.Next.URL }}">Next <span class="pager-arrow">></span></a></div>
-        {{ end }}
+        
+        <div class="pager-next"{{ if not $.Paginator.HasNext }} style="visibility: hidden;"{{ end }}><a href="{{ if $.Paginator.HasNext }}{{ $.Paginator.Next.URL }}{{ else }}#{{ end }}">Next <span class="pager-arrow">></span></a></div>
+
       </div>
     </div>
   </div>
