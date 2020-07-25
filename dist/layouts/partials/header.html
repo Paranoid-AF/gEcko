@@ -11,8 +11,8 @@
       <p id="siteInfoDescription"><span id="text">{{ with $.Site.Params.subtitle }}{{ . }}{{ end }}</span><span id="switch" title="Switch quote"></span></p>
     </div>
     <div class="search">
-      <form id="search" class="searchForm" baseUrl="{{ .Site.BaseURL }}" engine="{{ if (isset .Site.Params "searchengine") }}{{ .Site.Params.searchengine }}{{ else }}https://www.google.com/search?q=%KEYWORD%{{ end }}" role="search">
-        <input type="text" id="s" name="s" class="searchInput" placeholder="Search..." />
+      <form id="search" target="_blank" class="searchForm" action="{{ with .Site.Params.searchengine }}{{ . }}{{ else }}https://www.google.com/search{{ end }}" role="search" baseUrl="{{ .Site.BaseURL }}">
+        <input type="text" id="q" name="{{ with .Site.Params.searchkey }}{{ . }}{{ else }}q{{ end }}" class="searchInput" placeholder="Search..." />
       </form>
       <div class="searchFormFake">
         <div class="searchIconFake"></div>

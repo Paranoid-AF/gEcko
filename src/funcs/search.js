@@ -29,3 +29,19 @@ $(".searchInput").blur(()=>{
     searchBoxShown = false;
   }
 });
+
+$("#search").submit(function(e) {
+  const baseUrl = e.target.getAttribute("baseurl");
+  if(!!baseUrl){
+    let domain = baseUrl.match(/\/\/(.+?)[:\/]/);
+    if(!!domain[1]){
+      const input = e.target.getElementsByTagName("input")[0].value;
+      e.target.getElementsByTagName("input")[0].value = `site:${domain[1]} ` + input;
+      setTimeout(() => {
+        e.target.getElementsByTagName("input")[0].value = input;
+      }, 50);
+      return;
+    }
+  }
+  e.preventDefault();
+});
