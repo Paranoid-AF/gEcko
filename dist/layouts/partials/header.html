@@ -26,11 +26,14 @@
       {{ end }}
       <div class="linkDivider"></div>
       <div class="pages">
-        {{ if or (.IsHome) (.IsPage) }}
-          <a class="pageLink" href="{{ .Site.BaseURL }}index.xml">RSS</a>
-        {{ else}}
-          <a class="pageLink" href="{{ .Site.BaseURL }}index.xml">RSS</a>
-          <a class="pageLink" href="{{ .Permalink }}index.xml">RSS of this</a>
+        <a class="pageLink" href="{{ .Site.BaseURL }}index.xml" target="_blank">RSS</a>
+        {{ if eq .Type "categories" }}
+          <a class="pageLink" href="{{ .Permalink }}index.xml" target="_blank">RSS of {{ $.Title }}</a>
+        {{ end }}
+        {{ if (.IsPage) }}
+          {{ with .Params.categories }}
+          <a class="pageLink" href="{{ $.Site.BaseURL }}categories/{{ . | urlize | lower }}/index.xml" target="_blank">RSS of {{ . }}</a>
+          {{ end }}
         {{ end }}
       </div>
     </div>
