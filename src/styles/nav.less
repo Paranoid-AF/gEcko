@@ -211,10 +211,13 @@
   color: @categoryColor;
 }
 
+@categoryHoverDistance: 20px;
 .categoryLink:not(.categoryActive):hover{
   background: @categoryBgColorHover;
   color: @categoryColorHover;
-  transition: color 0.3s, background 0.3s;
+  width: calc(100% - @categoryHoverDistance);
+  padding-right: @categoryHoverDistance;
+  transition: color 0.3s, background 0.3s, width 0.3s;
 }
 
 .categoryActive{
