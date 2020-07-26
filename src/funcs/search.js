@@ -39,7 +39,7 @@ $("#search").submit(function(e) {
       e.target.getElementsByTagName("input")[0].value = `site:${domain[1]} ` + input;
       setTimeout(() => {
         e.target.getElementsByTagName("input")[0].value = input;
-      }, 50);
+      }, 1);
       return;
     }
   }
