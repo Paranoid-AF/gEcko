@@ -31,6 +31,9 @@ jobs:
       run: |
         cd ./dist
         ls | grep -P "^test\-.*" | xargs -d"\n" rm
+    - name: Move License file.
+      run: |
+        mv LICENSE ./dist
     - name: Pack up.
       run: |
         mv ./dist ./gEcko
