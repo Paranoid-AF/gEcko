@@ -31,13 +31,6 @@ jobs:
       run: |
         cd ./dist
         ls | grep -P "^test\-.*" | xargs -d"\n" rm
-    - name: Move static files.
-      run: |
-        cd ./dist/static
-        mkdir js
-        mv **/*.js ./js/
-        mkdir css
-        mv **/*.css ./css/
     - name: Pack up.
       run: |
         mv ./dist ./gEcko

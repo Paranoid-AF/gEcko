@@ -25,7 +25,7 @@
     "base64-inline-loader": "^1.1.1"
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode production && cd ./dist/static && mkdir js && mv ./*.js ./js/ && mkdir css && mv ./*.css ./css/",
     "start": "webpack-dev-server --mode development"
   },
   "dependencies": {
