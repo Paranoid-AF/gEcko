@@ -31,8 +31,10 @@
   color: @postTitleColor;
 }
 
-.comment{
+.postComment{
+  margin: 0 auto;
   margin-top: 30px;
+  width: 100%;
 }
 
 .navContentWrapper{
@@ -135,5 +137,11 @@
   .post{
     width: calc(100% - 2 * @blankPadding);
     padding: 0 @blankPadding;
+  }
+}
+
+@media (min-width: 1200px){
+  .postComment{
+    width: 80%;
   }
 }

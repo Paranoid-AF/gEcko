@@ -292,9 +292,13 @@ function setActive(index, elem = null){
 
 const observer = new IntersectionObserver((entries)=>{
   let targetIndex = -1;
-  if(entries.length === 1 && !entries[0].isIntersecting){
-    targetIndex = titles.indexOf(entries[0].target);
+  if(entries.length === 1){
+    // One and only coming.
+    if(entries[0].isIntersecting){
+      targetIndex = titles.indexOf(entries[0].target);
+    }
   }else{
+
     let lastTrue = null;
     entries.every((entry) => {
       if(entry.isIntersecting){
@@ -305,7 +309,7 @@ const observer = new IntersectionObserver((entries)=>{
       }
     });
     if(lastTrue !== null){
-      targetIndex = titles.indexOf(lastTrue.target) - 1;
+      targetIndex = titles.indexOf(lastTrue.target);
       if(targetIndex < 0){
         targetIndex = 0;
       }
