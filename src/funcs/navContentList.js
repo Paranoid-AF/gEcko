@@ -4,7 +4,7 @@ var lastScrollY = window.pageYOffset;
 var navBarTransparent = false;
 
 let titles;
-$(window).on('load', function(){
+$(document).ready(function(){
     titles = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")];
     if(pageInfo.isPost){
     try{
