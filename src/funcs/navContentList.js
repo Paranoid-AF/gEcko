@@ -190,3 +190,4 @@ const observer = new IntersectionObserver((entries)=>{
   threshold: 1
 });
 
+export default clearifyNav;

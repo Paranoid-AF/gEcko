@@ -1,5 +1,6 @@
 import "./search.js";
 import $ from "jquery";
+import clearifyNav from "./navContentList.js";
 var forceOn = false;
 const responsiveThreshold = 749;
 const navTransition = 0.4; // second
