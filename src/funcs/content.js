@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import "./formatter.js";
 $(document).ready(function(){
   // Scroll to anchored position
   const urlHash = decodeURI(window.location.hash).match(/\#(.*)/);

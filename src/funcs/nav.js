@@ -1,5 +1,5 @@
-import "./search.js";
 import $ from "jquery";
+import "./search.js";
 import clearifyNav from "./navContentList.js";
 var forceOn = false;
 const responsiveThreshold = 749;
