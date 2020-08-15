@@ -8,7 +8,7 @@
         {{ .Content }}
     </div>
     <div class="comment">
-      <!-- Reserved Comment Section -->
+      {{ with $.Site.Params.commentsection }}{{ . | safeHTML }}{{ end }}
     </div>
   </div>
 {{ end }}
