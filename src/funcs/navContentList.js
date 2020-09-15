@@ -78,43 +78,44 @@ $(document).ready(function(){
 });
 
 function prepareNavContent(){
-  function getLevel(elem){
-    return Number(elem.tagName.match(/\d+/g).pop());
+  const titleList = $('.post-content.contentArea').find('h1, h2, h3, h4, h5, h6');
+  let iterParent = null;
+  const docTree = [ ];
+  
+  /*
+  let testDrive = {
+    content: "current title",
+    type: 1,
+    parent: null,
+    child: [ ],
+    html: <h1></h1>
   }
-  function getText(elem){
-    return elem.innerText;
-  }
-  let current = document.createElement("ol");
-  current.setAttribute("level", getLevel(titles[0]));
-  $(document.querySelector(".navContentWrapper .list")).append(current);
+  */
 
-  titles.forEach((elem, index) => {
-    const level = getLevel(titles[index]);
-    if(index + 1 < titles.length){
-      const nextLevel = getLevel(titles[index + 1]);
-      if(!isNaN(level)){
-        if(current.getAttribute("level") > level.toString()){
-          while(current.getAttribute("level") > level.toString()){
-            if(current.parentElement !== null && current.parentElement.parentElement !== null && current.parentElement.parentElement.tagName.toLowerCase() === "ol"){
-              current = current.parentElement.parentElement;
-            }else{
-              $(current.parentElement).append(`<ol level=${getLevel(elem).toString()}></ol>`);
-              current = current.parentElement.lastChild;
-              break;
-            }
-          }
-        }
-        if(level < nextLevel){
-          $(current).append(`<li index=${index}><span>${getText(elem)}</span><ol level=${getLevel(titles[index+1]).toString()}></ol></li>`);
-          current = current.lastChild.lastChild;
-        }else{
-          $(current).append(`<li index=${index}><span>${getText(elem)}</span></li>`);
-        }
-        }
-    }else{
-      $(current).append(`<li index=${index}><span>${getText(elem)}</span></li>`);
+  titleList.each((index, val) => {
+    const currentTitle = { };
+    currentTitle["html"] = val;
+    currentTitle["content"] = val.innerText;
+    currentTitle["type"] = parseInt(val.tagName.match(/H(\d?)/)[1]);
+    while(iterParent !== null){
+      if(iterParent.type < currentTitle["type"]){
+        break;
+      }
+      if(iterParent.parent === null){
+        iterParent = null;
+        break;
+      }
+      if(iterParent.type >= currentTitle["type"]){
+        iterParent = iterParent.parent;
+      }
     }
-  });
+    currentTitle["parent"] = iterParent;
+    currentTitle["child"] = [ ];
+    docTree.push(currentTitle);
+    iterParent = currentTitle;
+  })
+  console.log(docTree);
+
 }
 
 var lockBlur = false;
