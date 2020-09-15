@@ -22,22 +22,22 @@
     <div class="category">
       <a class="{{ if .IsHome }}categoryLink categoryActive{{ else }}categoryLink{{ end }}" href="{{ .Site.BaseURL }}">Home</a>
       {{ range $name, $item := .Site.Taxonomies.categories }}
-      <a class="{{ if or ( and (eq $.Type "categories") (eq ($.Title | urlize | lower) ($name | urlize | lower)) ) (eq ($.Params.categories | urlize | lower) ($name | urlize | lower)) }}categoryLink categoryActive{{ else }}categoryLink{{ end }}" href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">{{ $name }}</a>
+      <a class="{{ if or ( and (eq $.Type "categories") (eq ($.Title | urlize | lower) ($name | urlize | lower)) ) (eq ($.Params.categories | urlize | lower) ($name | urlize | lower)) }}categoryLink categoryActive{{ else }}categoryLink{{ end }}" href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}/">{{ $name }}</a>
       {{ end }}
       <div class="linkDivider"></div>
       <div class="pages">
         {{ if (isset .Site.Params "links") }}
           {{ range $index, $item := .Site.Params.links }}
-        <a class="pageLink" href="{{ $item.href }}" target="_blank">{{ $item.text }}</a>
+        <a class="pageLink" href="{{ $item.href }}" target="_blank" rel="noopener">{{ $item.text }}</a>
           {{ end }}
         {{ end }}
-        <a class="pageLink" href="{{ .Site.BaseURL }}index.xml" target="_blank">RSS</a>
+        <a class="pageLink" href="{{ .Site.BaseURL }}index.xml" target="_blank" rel="noopener">RSS</a>
         {{ if eq .Type "categories" }}
-        <a class="pageLink" href="{{ .Permalink }}index.xml" target="_blank">RSS of {{ $.Title }}</a>
+        <a class="pageLink" href="{{ .Permalink }}index.xml" target="_blank" rel="noopener">RSS of {{ $.Title }}</a>
         {{ end }}
         {{ if (.IsPage) }}
           {{ with .Params.categories }}
-        <a class="pageLink" href="{{ $.Site.BaseURL }}categories/{{ . | urlize | lower }}/index.xml" target="_blank">RSS of {{ . }}</a>
+        <a class="pageLink" href="{{ $.Site.BaseURL }}categories/{{ . | urlize | lower }}/index.xml" target="_blank" rel="noopener">RSS of {{ . }}</a>
           {{ end }}
         {{ end }}
       </div>
