@@ -109,10 +109,18 @@ function prepareNavContent(){
   let rootLevel = Infinity;
   let currentNode = null;
   function spawnChildren(parentLi, docInfo){
+    let childLi = null;
+    let lastLiLevel = 0;
     docInfo.children.forEach((val, index) => {
-      const childLi = $(`<ol level="${val.type}"><li index="${val.index}"><span>${val.content}</span></li></ol>`)
-                    .appendTo(parentLi)
-                    .find('li')[0];
+      if(index == 0 || val.type > lastLiLevel){
+        childLi = $(`<ol level="${val.type}"><li index="${val.index}"><span>${val.content}</span></li></ol>`)
+        .appendTo(parentLi)
+        .find('li')[0];
+        lastLiLevel = val.type;
+      }else{
+        childLi = $(childLi).after(`<li index="${val.index}"><span>${val.content}</span></li>`)[0];
+      }
+
       spawnChildren(childLi, val);
     });
   }
