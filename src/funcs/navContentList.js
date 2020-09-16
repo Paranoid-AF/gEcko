@@ -5,7 +5,7 @@ var navBarTransparent = false;
 
 let titles;
 $(document).ready(function(){
-    titles = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")];
+    titles = [...$('.post-content.contentArea').find('h1, h2, h3, h4, h5, h6')];
     if(pageInfo.isPost){
     try{
       lastScrollY = window.pageYOffset;
@@ -78,23 +78,10 @@ $(document).ready(function(){
 });
 
 function prepareNavContent(){
-  const titleList = $('.post-content.contentArea').find('h1, h2, h3, h4, h5, h6');
   let iterParent = null;
   const docTree = [ ];
-  
-  /*
-  let testDrive = {
-    content: "current title",
-    type: 1,
-    parent: null,
-    child: [ ],
-    html: <h1></h1>
-  }
-  */
-
-  titleList.each((index, val) => {
+  $(titles).each((index, val) => {
     const currentTitle = { };
-    currentTitle["html"] = val;
     currentTitle["content"] = val.innerText;
     currentTitle["type"] = parseInt(val.tagName.match(/H(\d?)/)[1]);
     while(iterParent !== null){
