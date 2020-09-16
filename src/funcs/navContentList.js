@@ -110,12 +110,44 @@ function prepareNavContent(){
       }
     }
     currentTitle["parent"] = iterParent;
-    currentTitle["child"] = [ ];
-    docTree.push(currentTitle);
+    currentTitle["children"] = [ ];
+    currentTitle["index"] = index;
+    if(iterParent === null){
+      docTree.push(currentTitle);
+    }else{
+      iterParent.children.push(currentTitle);
+    }
     iterParent = currentTitle;
   })
-  console.log(docTree);
+  let rootLevel = Infinity;
+  let currentNode = null;
+  function spawnChildren(parentLi, docInfo){
+    docInfo.children.forEach((val, index) => {
+      const childLi = $(`<ol level="${val.type}"><li index="${val.index}"><span>${val.content}</span></li></ol>`)
+                    .appendTo(parentLi)
+                    .find('li')[0];
+      spawnChildren(childLi, val);
+    });
+  }
+  docTree.forEach((val, index) => {
+    if(index > 0){
+      if(val.type < docTree[index - 1].type){
+        $('.navContentWrapper .list').append(currentNode);
+        currentNode = document.createElement('ol');
+        currentNode.setAttribute('level', val.type.toString());
+      }
+    }else{
+      currentNode = document.createElement('ol');
+      currentNode.setAttribute('level', val.type.toString());
+    }
+    let parentNode = $(`<li index="${val.index}"><span>${val.content}</span></li>`).appendTo(currentNode)[0];
+    // Spawn children
+    spawnChildren(parentNode, val);
 
+    if(index === docTree.length - 1){
+      $('.navContentWrapper .list').append(currentNode);
+    }
+  });
 }
 
 var lockBlur = false;
