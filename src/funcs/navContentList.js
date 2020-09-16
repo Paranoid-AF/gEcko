@@ -41,6 +41,9 @@ $(document).ready(function(){
         top: 0,
         behavior: "smooth"
       });
+      setTimeout(() => {
+        window.location.hash = "";
+      }, 1000);
     });
     
     $(".navContentWrapper .close").click(() => {
