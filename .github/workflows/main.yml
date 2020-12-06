@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Get Commit Message.
       run: |
-        MSG=$(git rev-parse HEAD)
+        MSG=$(git rev-parse HEAD | cut -c1-16)
         echo "::set-env name=COMMIT_MESSAGE::${MSG}"
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
